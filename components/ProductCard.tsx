@@ -7,12 +7,13 @@ import type { Product } from '@/data/products';
 type Props = {
   product: Product;
   compact?: boolean;
+  layout?: 'default' | 'featured' | 'wide';
   onOpenMedia: (product: Product) => void;
   onAddToCart: (product: Product, payload: { color: string; quantity: number; details: string }) => void;
   onOrder: (product: Product) => void;
 };
 
-export default function ProductCard({ product, compact = false, onOpenMedia, onAddToCart, onOrder }: Props) {
+export default function ProductCard({ product, compact = false, layout = 'default', onOpenMedia, onAddToCart, onOrder }: Props) {
   const cardRef = useRef<HTMLDivElement | null>(null);
   const isVideo = product.variant === 'video';
 
@@ -24,8 +25,29 @@ export default function ProductCard({ product, compact = false, onOpenMedia, onA
     onAddToCart(product, { color, quantity, details });
   };
 
+  const actionButtons = () => {
+    if (product.category === 'personalizados') {
+      return <button className="btn-pedir" onClick={() => onOrder(product)}>Consultar Diseño Personalizado</button>;
+    }
+
+    if (product.variant === 'video') {
+      return (
+        <>
+          <button className="btn-pedir" onClick={() => onOpenMedia(product)}>{product.ctaLabel || 'Ver Demostración'}</button>
+          <button className="btn-pedir" onClick={() => onOrder(product)} style={{ marginTop: 10 }}>Consultar Precio</button>
+        </>
+      );
+    }
+
+    if (product.priceMinorista > 0) {
+      return <button className="btn-pedir" onClick={handleAddToCart}>Agregar al carrito</button>;
+    }
+
+    return <button className="btn-pedir" onClick={() => onOrder(product)}>Consultar Precio</button>;
+  };
+
   return (
-    <article className={`card ${compact ? 'card--compact' : ''}`} ref={cardRef}>
+    <article className={`card ${compact ? 'card--compact' : ''} card--${layout}`} ref={cardRef}>
       <div className="card-img-container" onClick={() => onOpenMedia(product)} style={{ cursor: 'pointer' }}>
         {isVideo ? (
           <video className="product-img" autoPlay muted loop playsInline preload="metadata">
@@ -78,18 +100,7 @@ export default function ProductCard({ product, compact = false, onOpenMedia, onA
               ) : null}
             </>
           ) : null}
-          {product.category === 'personalizados' ? (
-            <button className="btn-pedir" onClick={() => onOrder(product)}>Consultar Diseño Personalizado</button>
-          ) : product.variant === 'video' ? (
-            <>
-              <button className="btn-pedir" onClick={() => onOpenMedia(product)}>{product.ctaLabel || 'Ver Demostración'}</button>
-              <button className="btn-pedir" onClick={() => onOrder(product)} style={{ marginTop: 10 }}>Consultar Precio</button>
-            </>
-          ) : product.priceMinorista > 0 ? (
-            <button className="btn-pedir" onClick={handleAddToCart}>Agregar al carrito</button>
-          ) : (
-            <button className="btn-pedir" onClick={() => onOrder(product)}>Consultar Precio</button>
-          )}
+          {actionButtons()}
         </div>
       </div>
     </article>

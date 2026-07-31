@@ -210,14 +210,16 @@ header .slogan {
 
 .grid-productos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  grid-gap: 30px;
-  gap: 30px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-gap: 24px;
+  gap: 24px;
+  align-items: start;
 }
 
 .card {
+  grid-column: span 4;
   background-color: var(--bg-card);
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
   border: var(--border-glow);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -225,11 +227,21 @@ header .slogan {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
+}
+
+.card--wide {
+  grid-column: span 8;
+}
+
+.card--featured {
+  grid-column: span 8;
+  grid-row: span 2;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 240, 255, 0.2);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 16px 35px rgba(0, 240, 255, 0.16);
   border-color: var(--primary-cyan);
 }
 
@@ -248,7 +260,8 @@ header .slogan {
 
 .card-img-container {
   position: relative;
-  height: 220px;
+  height: 240px;
+  min-height: 240px;
   background: linear-gradient(135deg, #0d152b 0%, #060812 100%);
   display: flex;
   align-items: center;
@@ -264,11 +277,16 @@ header .slogan {
   background-color: #07060f;
   z-index: 2;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.35s ease;
 }
 
 .product-img:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
+}
+
+.card--featured .card-img-container {
+  min-height: 320px;
+  height: 320px;
 }
 
 .tech-blueprint {
@@ -647,21 +665,28 @@ footer p {
   header .slogan { font-size: 1.1rem; }
   .grid-productos {
     grid-template-columns: 1fr;
-    justify-items: center;
     gap: 20px;
   }
-  .card {
-    width: 90%;
-    max-width: 320px;
+  .card,
+  .card--wide,
+  .card--featured {
+    grid-column: auto;
+    width: 100%;
+    max-width: 100%;
   }
   .card-img-container {
     height: 250px;
+  }
+  .card--featured .card-img-container {
+    height: 260px;
+    min-height: 260px;
   }
   .product-img {
     object-fit: cover;
   }
   .filter-bar {
     justify-content: center;
+    border-radius: 24px;
   }
 }
 

@@ -205,9 +205,20 @@ export default function Storefront() {
               <h2>{section.title}</h2>
             </div>
             <div className="grid-productos">
-              {section.items.map((product) => (
-                <ProductCard key={product.id} product={product} compact={viewMode === 'compact'} onOpenMedia={handleOpenMedia} onAddToCart={handleAddToCart} onOrder={handleOrder} />
-              ))}
+              {section.items.map((product, index) => {
+                const layout = index % 5 === 0 ? 'featured' : index % 3 === 1 ? 'wide' : 'default';
+                return (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    compact={viewMode === 'compact'}
+                    layout={layout}
+                    onOpenMedia={handleOpenMedia}
+                    onAddToCart={handleAddToCart}
+                    onOrder={handleOrder}
+                  />
+                );
+              })}
             </div>
           </div>
         ))}
