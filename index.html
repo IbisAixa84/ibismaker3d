@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>IbisMaker 3D - Tu imaginación en tres dimensiones</title>
+
+				<!-- Favicon: Este es el logo que aparece en la pestaña del navegador -->
+				<link rel="icon" href="img/logo.ult.webp" type="image/webp">
+					<link rel="preload" as="image" href="/img/logo.ult.webp">
+					<style>
+						* {
+						box-sizing: border-box;
+						margin: 0;
+						padding: 0;
+						font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+						}
+
+
+						img {
+						max-width: 100%;
+						height: auto;
+						}
+
+						:root {
+						--bg-dark: #07060f;
+						--bg-card: #100e21;
+						--primary-cyan: #00f0ff;
+						--accent-blue: #1b5cf2;
+						--silver-metal: #a6b4c9;
+						--text-white: #ffffff;
+						--text-muted: #8d9bb0;
+						--glow-cyan: 0 0 15px rgba(0, 240, 255, 0.4);
+						--border-glow: 1px solid rgba(0, 240, 255, 0.2);
+						--tag-mayorista: #39ff14;
+						}
+
+
+						body {
+						background-color: var(--bg-dark);
+						color: var(--text-white);
+						line-height: 1.6;
+						background-image: radial-gradient(circle at 50% 20%, #111a3b 0%, var(--bg-dark) 70%);
+						background-attachment: fixed;
+						}
+
+						/* LOGO & HERO SECTION */
+						header {
+						text-align: center;
+						padding: 50px 20px 30px 20px;
+						border-bottom: 2px solid rgba(0, 240, 255, 0.15);
+						background: linear-gradient(180deg, rgba(7, 6, 15, 0.8) 0%, rgba(16, 14, 33, 0.4) 100%);
+						position: relative;
+						}
+
+						.logo-container {
+						width: 160px;
+						height: 160px;
+						margin: 0 auto 20px auto;
+						background: radial-gradient(circle, #100e21 40%, var(--primary-cyan) 100%);
+						border-radius: 50%;
+						padding: 4px;
+						box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						}
+
+						.logo-img {
+						width: 100%;
+						height: 100%;
+						border-radius: 50%;
+						object-fit: cover;
+						border: 2px solid var(--bg-dark);
+						}
+
+						header h1 {
+						font-size: 2.8rem;
+						color: var(--text-white);
+						letter-spacing: 1px;
+						text-transform: uppercase;
+						margin-bottom: 5px;
+						background: linear-gradient(135deg, #ffffff 30%, var(--primary-cyan) 100%);
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+						}
+
+						header .slogan {
+						font-size: 1.25rem;
+						color: var(--silver-metal);
+						font-style: italic;
+						margin-bottom: 20px;
+						letter-spacing: 0.5px;
+						}
+
+						header .whatsapp-main {
+						display: inline-flex;
+						align-items: center;
+						gap: 10px;
+						background: linear-gradient(135deg, var(--accent-blue) 0%, #25D366 100%);
+						color: white;
+						text-decoration: none;
+						padding: 12px 24px;
+						border-radius: 50px;
+						font-weight: bold;
+						font-size: 1rem;
+						box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+						transition: all 0.3s ease;
+						}
+
+						header .whatsapp-main:hover {
+						transform: scale(1.05);
+						box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+						}
+
+						/* PROMO BANNER */
+						.promo-banner {
+						max-width: 900px;
+						margin: 25px auto;
+						background: rgba(0, 240, 255, 0.05);
+						border: 1px dashed var(--primary-cyan);
+						border-radius: 12px;
+						padding: 15px 20px;
+						text-align: center;
+						box-shadow: var(--glow-cyan);
+						}
+
+						.promo-banner strong {
+						color: var(--tag-mayorista);
+						}
+
+						/* NAVIGATION BY EVENT */
+						.event-nav-container {
+						max-width: 1200px;
+						margin: 30px auto;
+						padding: 0 20px;
+						text-align: center;
+						}
+
+						.event-nav-title {
+						font-size: 1.5rem;
+						color: var(--primary-cyan);
+						margin-bottom: 15px;
+						text-transform: uppercase;
+						letter-spacing: 1px;
+						}
+
+						.event-buttons {
+						display: flex;
+						flex-wrap: wrap;
+						justify-content: center;
+						gap: 12px;
+						}
+
+						.btn-event {
+						background-color: var(--bg-card);
+						color: var(--silver-metal);
+						border: 1px solid rgba(166, 180, 201, 0.3);
+						padding: 10px 18px;
+						font-size: 0.95rem;
+						border-radius: 30px;
+						cursor: pointer;
+						transition: all 0.3s ease;
+						font-weight: 600;
+						}
+
+						.btn-event:hover, .btn-event.active {
+						background-color: var(--primary-cyan);
+						color: var(--bg-dark);
+						border-color: var(--primary-cyan);
+						box-shadow: var(--glow-cyan);
+						transform: translateY(-2px);
+						}
+
+						/* PRODUCTS MAIN CONTAINER */
+						.container {
+						max-width: 1200px;
+						margin: 0 auto;
+						padding: 20px;
+						}
+
+						/* PRODUCT TYPE SECTION */
+						.product-section {
+						margin-bottom: 60px;
+						}
+
+						.section-header {
+						border-bottom: 2px solid var(--accent-blue);
+						padding-bottom: 10px;
+						margin-bottom: 30px;
+						display: flex;
+						align-items: center;
+						gap: 10px;
+						}
+
+						.section-header h2 {
+						font-size: 1.8rem;
+						color: var(--primary-cyan);
+						text-transform: uppercase;
+						}
+
+						.grid-productos {
+						display: grid;
+						grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+						gap: 30px;
+						}
+
+
+
+
+						/* PRODUCT CARD */
+						.card {
+						background-color: var(--bg-card);
+						border-radius: 16px;
+						overflow: hidden; /* Esto es lo que permite que las esquinas se vean curvas */
+						border: var(--border-glow);
+						transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+						position: relative;
+						}
+
+						.card:hover {
+						transform: translateY(-8px);
+						box-shadow: 0 10px 25px rgba(0, 240, 255, 0.2);
+						border-color: var(--primary-cyan);
+						}
+
+
+						.card-img-container {
+						position: relative;
+						height: 220px;
+						background: linear-gradient(135deg, #0d152b 0%, #060812 100%);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						overflow: hidden;
+						border-radius: 16px 16px 0 0; /* Curva solo las esquinas superiores */
+						}
+
+
+						.product-img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover; /* CAMBIAMOS COVER POR CONTAIN */
+						background-color: #07060f; /* Añadimos el fondo oscuro por si la imagen es pequeña */
+						z-index: 2;
+						cursor: pointer;
+						transition: transform 0.3s ease;
+						}
+
+						.product-img:hover {
+						transform: scale(1.05);
+						}
+
+
+						.tech-blueprint {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						background-image:
+						linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+						linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+						background-size: 20px 20px;
+						background-position: center;
+						pointer-events: none;
+						z-index: 1;
+						}
+
+						.card-placeholder-text {
+						font-size: 1.1rem;
+						color: var(--silver-metal);
+						text-align: center;
+						padding: 20px;
+						font-weight: bold;
+						letter-spacing: 0.5px;
+						z-index: 0;
+						position: absolute;
+						}
+
+						.card-content {
+						padding: 20px;
+						display: flex;
+						flex-direction: column;
+						flex-grow: 1;
+						justify-content: space-between;
+						}
+
+						.card-title {
+						font-size: 1.35rem;
+						margin-bottom: 8px;
+						color: var(--text-white);
+						}
+
+						.important-detail {
+						background-color: rgba(27, 92, 242, 0.15);
+						border-left: 4px solid var(--accent-blue);
+						padding: 8px 12px;
+						border-radius: 0 8px 8px 0;
+						font-size: 0.85rem;
+						color: #d1dcff;
+						margin-bottom: 15px;
+						}
+
+						.important-detail strong {
+						color: var(--text-white);
+						}
+
+						.prices-box {
+						background-color: rgba(7, 6, 15, 0.5);
+						padding: 12px;
+						border-radius: 8px;
+						margin-bottom: 15px;
+						border: 1px solid rgba(166, 180, 201, 0.1);
+						}
+
+						.price-row {
+						display: flex;
+						justify-content: space-between;
+						font-size: 0.95rem;
+						}
+
+						.price-row.minorista {
+						color: var(--silver-metal);
+						margin-bottom: 4px;
+						}
+
+						.price-row.mayorista {
+						color: var(--tag-mayorista);
+						font-weight: bold;
+						}
+
+						/* FORM CONTROLS */
+						.control-group {
+						margin-bottom: 12px;
+						}
+
+						label {
+						display: block;
+						font-size: 0.8rem;
+						color: var(--silver-metal);
+						margin-bottom: 4px;
+						text-transform: uppercase;
+						letter-spacing: 0.5px;
+						}
+
+						select, input[type="number"], input[type="text"] {
+						width: 100%;
+						padding: 9px 12px;
+						background-color: #07060f;
+						border: 1px solid rgba(166, 180, 201, 0.2);
+						color: white;
+						border-radius: 6px;
+						outline: none;
+						font-size: 0.9rem;
+						transition: all 0.2s ease;
+						}
+
+						select:focus, input:focus {
+						border-color: var(--primary-cyan);
+						box-shadow: 0 0 5px rgba(0, 240, 255, 0.3);
+						}
+
+						.btn-pedir {
+						display: block;
+						width: 100%;
+						padding: 12px;
+						background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+						color: white;
+						border: none;
+						border-radius: 8px;
+						font-size: 1rem;
+						font-weight: bold;
+						cursor: pointer;
+						transition: all 0.3s ease;
+						text-align: center;
+						text-decoration: none;
+						margin-top: 10px;
+						box-shadow: 0 4px 10px rgba(37, 211, 102, 0.15);
+						}
+
+						.btn-pedir:hover {
+						transform: translateY(-2px);
+						box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+						filter: brightness(1.1);
+						}
+
+
+						/* INFO SECTIONS */
+						.workflow-section {
+						background-color: var(--bg-card);
+						border-radius: 16px;
+						padding: 35px 20px;
+						margin: 60px auto;
+						max-width: 900px;
+						border: var(--border-glow);
+						text-align: center;
+						}
+
+						.workflow-section h2 {
+						color: var(--primary-cyan);
+						text-transform: uppercase;
+						margin-bottom: 25px;
+						letter-spacing: 1px;
+						}
+
+						.steps-grid {
+						display: grid;
+						grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+						gap: 20px;
+						}
+
+						.step-card {
+						background: rgba(7, 6, 15, 0.5);
+						padding: 20px;
+						border-radius: 10px;
+						border: 1px solid rgba(166, 180, 201, 0.1);
+						}
+
+						.step-num {
+						font-size: 2rem;
+						font-weight: bold;
+						color: var(--primary-cyan);
+						margin-bottom: 10px;
+						}
+
+						.step-card h3 {
+						margin-bottom: 8px;
+						font-size: 1.1rem;
+						}
+
+						.step-card p {
+						font-size: 0.9rem;
+						color: var(--silver-metal);
+						}
+
+						footer {
+						text-align: center;
+						padding: 40px 20px;
+						background-color: #04030a;
+						border-top: 1px solid rgba(166, 180, 201, 0.1);
+						color: var(--text-muted);
+						font-size: 0.9rem;
+						}
+
+						footer p {
+						margin-bottom: 10px;
+						}
+
+						/* --- BLOQUE PARA MÓVILES (Pégalo al final de tu hoja de estilos) --- */
+						@media (max-width: 768px) {
+						header h1 { font-size: 2.2rem; }
+						header .slogan { font-size: 1.1rem; }
+
+						/* Forzamos una sola columna y centrado total */
+						.grid-productos {
+						display: grid !important;
+						grid-template-columns: 1fr !important;
+						justify-items: center !important;
+						gap: 20px !important;
+						}
+
+						/* Ajustamos el tamaño de las tarjetas */
+						.card {
+						width: 90% !important;
+						max-width: 320px !important;
+						}
+
+						/* Mantenemos el contenedor de imagen fijo */
+						.card-img-container {
+						height: 250px !important;
+						}
+
+						.product-img {
+						object-fit: cover;
+						background-color: #07060f !important;
+						}
+						}
+
+
+						#noResults {
+						display: none;
+						text-align: center;
+						/* Usamos un color naranja/ámbar que resalta mucho sobre fondo oscuro */
+						color: #ffcc00;
+						font-weight: bold;
+						margin-top: 10px;
+						padding: 10px;
+						/* Un borde tenue para encerrar el aviso */
+						border: 1px solid #ffcc0044;
+						border-radius: 8px;
+						background: rgba(255, 204, 0, 0.05);
+						}
+
+						/* ZOOM MODAL CORREGIDO */
+						.zoom-modal {
+						display: none;
+						position: fixed;
+						z-index: 9999;
+						left: 0;
+						top: 0;
+						width: 100%;
+						height: 100%;
+						background-color: rgba(7, 6, 15, 0.95);
+						backdrop-filter: blur(10px);
+
+						justify-content: center;
+						align-items: center;
+						padding: 20px;
+						flex-direction: column; /* ESTO ES LO QUE ARREGLA EL APILAMIENTO */
+						}
+
+						.zoom-content {
+						max-width: 90vw;
+						max-height: 85vh;
+						object-fit: contain;
+						border-radius: 12px;
+						border: 2px solid var(--primary-cyan);
+						box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+						animation: zoomAnimate 0.3s ease;
+						}
+
+						.zoom-close {
+						position: absolute;
+						top: 20px;
+						right: 35px;
+						color: var(--text-white);
+						font-size: 40px;
+						font-weight: bold;
+						cursor: pointer;
+						z-index: 10000;
+						}
+
+						.zoom-close:hover {
+						color: var(--primary-cyan);
+						}
+
+						@keyframes zoomAnimate {
+						from {transform: scale(0.7); opacity: 0;}
+						to {transform: scale(1); opacity: 1;}
+						}
+
+						/* Añade este bloque para separar el texto */
+						.zoom-caption {
+						margin-top: 15px !important; /* Crea la separación arriba del texto */
+						text-align: center;
+						color: var(--text-white);
+						}
+
+
+
+
+						/*=========================================
+						INVITACIONES DIGITALES
+						=========================================*/
+
+						.invitacion-media{
+						width:100%;
+						height:220px;
+						object-fit:cover;
+						border-radius:12px;
+						cursor:pointer;
+						transition:.35s;
+						}
+
+						.invitacion-media:hover{
+						transform:scale(1.04);
+						}
+
+						.btn-demo{
+
+						width:100%;
+						margin-top:12px;
+
+						padding:12px;
+
+						background:linear-gradient(135deg,#1b5cf2,#00f0ff);
+
+						color:white;
+
+						border:none;
+
+						border-radius:8px;
+
+						font-size:1rem;
+
+						font-weight:bold;
+
+						cursor:pointer;
+
+						transition:.3s;
+
+						}
+
+						.btn-demo:hover{
+
+						transform:translateY(-2px);
+
+						box-shadow:0 0 20px rgba(0,240,255,.5);
+
+						}
+
+
+						/*==========================
+						VIDEO MODAL
+						===========================*/
+
+						.video-modal{
+
+						display:none;
+
+						position:fixed;
+
+						z-index:99999;
+
+						inset:0;
+
+						background:rgba(0,0,0,.92);
+
+						justify-content:center;
+
+						align-items:center;
+
+						backdrop-filter:blur(6px);
+
+						}
+
+						.video-box{
+
+						width:auto;
+						max-width:90vw;
+						max-height:85vh;
+
+						animation:zoomAnimate .35s;
+
+						}
+
+
+						.video-box video{
+
+						max-width:90vw;
+						max-height:80vh;
+
+						width:auto;
+						height:auto;
+
+						object-fit:contain;
+
+						border-radius:12px;
+
+						border:2px solid var(--primary-cyan);
+
+						box-shadow:0 0 30px rgba(0,240,255,.35);
+
+						}
+
+						.video-close{
+
+						position:absolute;
+
+						right:30px;
+
+						top:20px;
+
+						color:white;
+
+						font-size:45px;
+
+						cursor:pointer;
+
+						transition:.3s;
+
+						}
+
+						.video-close:hover{
+
+						color:var(--primary-cyan);
+
+						}
+
+
+
+
+
+					</style>
+				</head>
+	<body>
+
+		<!-- BARRA INFO FIJA -->
+		<div class="info-bar" style="background:#100e21; border-bottom:1px solid #00f0ff; padding:10px; text-align:center; font-size:0.8rem; color:#a6b4c9; position:sticky; top:0; z-index:1000;">
+			🕒 Producción: 48-72hs | 🚚 Envíos a todo el país 
+		</div>
+
+		
+		
+
+		<header>
+			<div class="logo-container">
+				<img class="logo-img" src="img/logo.ult.webp" alt="Logo IbisMaker 3D" decoding="async"> </div>
+			<h1>IbisMaker 3D</h1>
+			<div class="slogan">"Tu imaginación en tres dimensiones"</div>
+			<a href="https://wa.me/541131196403" class="whatsapp-main" target="_blank">
+				<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+					<path fill="currentColor" d="M12.04 2C6.5 2 2 6.5 2 12.04c0 1.77.46 3.49 1.34 5L2 22l5.12-1.34c1.47.8 3.12 1.22 4.8 1.22 5.54 0 10.04-4.5 10.04-10.04C21.96 6.5 17.46 2 12.04 2M12 20.38c-1.57 0-3.11-.42-4.46-1.22l-.32-.19-3.32.87.88-3.23-.21-.33c-.88-1.39-1.34-3-1.34-4.66 0-4.64 3.78-8.4 8.41-8.4 2.25 0 4.36.88 5.95 2.46a8.3 8.3 0 0 1 2.46 5.94c0 4.64-3.77 8.41-8.4 8.41m4.6-6.2c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.15.17-.29.19-.54.06-1.07-.47-1.84-.87-2.58-2.14-.19-.34-.19-.66-.06-.8.12-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.44c-.06-.12-.56-1.35-.77-1.84-.2-.48-.4-.41-.56-.41h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.62c.13.18 1.77 2.7 4.29 3.79.6.26 1.07.42 1.44.54.6.19 1.15.16 1.59.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.18-.48-.3"/>
+				</svg>
+				Asesoramiento Directo WhatsApp
+			</a>
+		</header>
+
+		<div class="promo-banner">
+			🎉 ¡Comprando <strong>10 unidades o más</strong> de un mismo artículo, accedés automáticamente al <strong>Precio Mayorista</strong> de súper descuento!
+		</div>
+
+
+
+		<!-- =======================
+     INVITACIONES DIGITALES
+======================== -->
+
+		<div class="workflow-section">
+
+			<h2>💌 Invitaciones Digitales Personalizadas</h2>
+
+			<p style="max-width:850px;margin:0 auto 30px auto;color:var(--silver-metal);font-size:1rem;line-height:1.7;">
+
+				Hacé que tus invitados vivan una experiencia diferente desde el primer momento.
+
+				Diseñamos <strong style="color:var(--primary-cyan);">Invitaciones Digitales Interactivas</strong>
+				con animaciones, música, cuenta regresiva, ubicación del evento, confirmación de asistencia
+				por WhatsApp y mucho más.
+
+				También realizamos <strong style="color:var(--primary-cyan);">Invitaciones Estáticas Premium</strong>,
+				listas para compartir por WhatsApp o Redes Sociales.
+
+				Todas son personalizadas para cualquier tipo de evento.
+
+			</p>
+
+			<div class="grid-productos">
+
+
+				<!-- VIDEO 1 -->
+
+				<div class="card" data-eventos="invitaciones">
+
+					<div class="card-img-container">
+
+						<video
+							class="video-product"
+							autoplay=""
+							muted=""
+							loop=""
+							playsinline=""
+							preload="metadata">
+
+							<source src="videos/invitacion_digPrimerA.mp4" type="video/mp4">
+
+
+        </video>
+
+					</div>
+
+
+					<div class="card-content">
+
+						<h3 class="card-title">
+							💌 Invitación Interactiva
+						</h3>
+
+
+						<p style="color:var(--silver-metal);margin-bottom:15px;">
+
+							Invitación animada con botones interactivos,
+							música, cuenta regresiva, ubicación del evento
+							y confirmación por WhatsApp.
+
+						</p>
+
+
+						<button
+							class="btn-pedir"
+							onclick="abrirVideo('videos/invitacion_digPrimerA.mp4')">
+
+							▶ Ver Demostración
+
+						</button>
+
+
+						<button
+							class="btn-pedir"
+							style="margin-top:10px;"
+							onclick="consultarInvitacion()">
+
+							Consultar Precio
+
+						</button>
+
+					</div>
+
+				</div>
+
+
+				<!-- VIDEO 2 -->
+
+				<div class="card" data-eventos="invitaciones">
+
+					<div class="card-img-container">
+
+						<video
+							class="video-product"
+							autoplay=""
+							muted=""
+							loop=""
+							playsinline=""
+							preload="metadata">
+
+							<source src="videos/invitacion_digitalXV.mp4" type="video/mp4">
+
+
+        </video>
+
+					</div>
+
+
+					<div class="card-content">
+
+						<h3 class="card-title">
+							💌 Invitación Interactiva
+						</h3>
+
+
+						<p style="color:var(--silver-metal);margin-bottom:15px;">
+
+							Invitación animada con botones interactivos,
+							música, cuenta regresiva, ubicación del evento
+							y confirmación por WhatsApp.
+
+						</p>
+
+
+						<button
+							class="btn-pedir"
+							onclick="abrirVideo('videos/invitacion_digitalXV.mp4')">
+
+							▶ Ver Demostración
+
+						</button>
+
+
+						<button
+							class="btn-pedir"
+							style="margin-top:10px;"
+							onclick="consultarInvitacion()">
+
+							Consultar Precio
+
+						</button>
+
+					</div>
+
+				</div>
+
+
+				<!-- IMAGEN 1 -->
+
+				<div class="card" data-eventos="invitaciones">
+
+					<div class="card-img-container">
+
+						<img
+						src="img/invitacion_digitalH.png"
+						class="product-img"
+						onclick="abrirZoom(this)"
+						alt="Invitación Estática Premium">
+
+						</div>
+
+					<div class="card-content">
+
+						<h3 class="card-title">
+
+							🖼 Invitación Estática
+
+						</h3>
+
+						<p style="color:var(--silver-metal);margin-bottom:15px;">
+
+							Diseño elegante en alta calidad
+							para compartir por WhatsApp o Redes Sociales.
+
+						</p>
+
+						<button
+						class="btn-pedir"
+						onclick="consultarInvitacion()">
+
+							Consultar Precio
+
+						</button>
+
+					</div>
+
+				</div>
+
+
+				<!-- IMAGEN 2 -->
+
+				<div class="card">
+					<div class="card" data-eventos="invitaciones">
+
+					<div class="card-img-container">
+
+						<img src="img/invitacion_estatica2.jpeg" class="product-img" onclick="abrirZoom(this)"
+						alt="Invitación Estática Personalizada">
+
+						</div>
+
+					<div class="card-content">
+
+						<h3 class="card-title">
+
+							💌 Invitación Estática Personalizada
+
+						</h3>
+
+						<p style="color:var(--silver-metal);margin-bottom:15px;">
+
+							Adaptada completamente al estilo
+							de tu evento.
+
+						</p>
+
+						<button
+						class="btn-pedir"
+						onclick="consultarInvitacion()">
+
+							Consultar Precio
+
+						</button>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- FIN INVITACIONES -->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		<!-- BUSCADOR -->
+		<div class="search-container" style="max-width:600px; margin:20px auto; padding:0 20px;">
+			<input type="text" id="searchInput" placeholder="🔍 Buscar productos..." onkeyup="buscarProducto()" style="width:100%; padding:12px; border-radius:20px; border:1px solid #00f0ff; background:#100e21; color:white; text-align:center;">
+
+				<p id="noResults" style="display:none; text-align:center; color:#00f0ff; margin-top:20px;">No encontramos productos con ese nombre...</p>
+			</div>
+
+
+
+		<!-- EVENT FILTER BUTTONS -->
+		<div class="event-nav-container">
+			<div class="event-nav-title">Elegí tu Evento para empezar a Diseñar</div>
+			<div class="event-buttons">
+				<button class="btn-event active" onclick="filtrarEvento('todos')">Todos</button>
+				<button class="btn-event" onclick="filtrarEvento('baby')">Baby Shower</button>
+				<button class="btn-event" onclick="filtrarEvento('bautismo')">Bautismo</button>
+				<button class="btn-event" onclick="filtrarEvento('primer')">Primer Añito</button>
+				<button class="btn-event" onclick="filtrarEvento('comunion')">Comunión</button>
+				<button class="btn-event" onclick="filtrarEvento('quince')">Mis Quince</button>
+				<button class="btn-event" onclick="filtrarEvento('dieciocho')">Mis 18 Años</button>
+				<button class="btn-event" onclick="filtrarEvento('graduacion')">Graduación</button>
+				<button class="btn-event" onclick="filtrarEvento('casamiento')">Casamiento</button>
+				<button class="btn-event" onclick="filtrarEvento('personalizados')">Eventos Personalizados</button>
+			</div>
+		</div>
+
+		<div class="container">
+
+			<!-- CATEGORY 1: ADORNOS DE PASTEL / CAKE TOPPERS -->
+			<div class="product-section">
+				<div class="section-header">
+					<h2>🎂 Adornos para Pastel / Toppers</h2>
+				</div>
+
+				<div class="grid-productos">
+					
+						<!-- TARJETA: Topper Boy o Girl -->
+					<div class="card" data-eventos="baby">
+						<div class="card-img-container">
+							<img class="product-img" src="img/topper_boyOgirl-removebg-preview.png" data-img="img/topper_boyOgirl-removebg-preview.png" alt="Topper Boy o Girl" onclick="abrirZoom(this)">
+								<div class="tech-blueprint"></div>
+								<div class="card-placeholder-text">Topper Boy o Girl</div>
+							</div>
+						<div class="card-content">
+							<div>
+								<h3 class="card-title">Topper Boy o Girl</h3>
+								<div class="important-detail">
+									📌 <strong>Importante:</strong> Fabricado con plástico PLA biodegradable, apto para contacto directo con alimentos.
+								</div>
+								<div class="prices-box">
+									<div class="price-row minorista">
+										<span>Precio Minorista:</span>
+										<span>$4500 c/u</span>
+									</div>
+									<div class="price-row mayorista">
+										<span>Precio Mayorista (10+):</span>
+										<span>$ c/u</span>
+									</div>
+								</div>
+							</div>
+							<div>
+								<div class="control-group">
+									<label>Color de Filamento:</label>
+									<select class="prod-color">
+										<option value="Dorado">Dorado</option>
+										<option value="Plateado">Plateado</option>
+										<option value="Blanco">Blanco</option>
+									</select>
+								</div>
+								<div class="control-group">
+									<label>Cantidad:</label>
+									<input type="number" class="prod-cant" value="1" min="1">
+                    </div>
+								<div class="control-group">
+									<label>Detalles / Nombre:</label>
+									<input type="text" class="prod-detalles" placeholder="Ej: Mi Bautismo">
+                    </div>
+								<button class="btn-pedir" onclick="realizarPedido(this, 'Topper Boy o Girl', 4500, 0)">Pedir por WhatsApp</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- PRODUCTO 2 -->
+					<div class="card" data-eventos="baby">
+						<div class="card-img-container">
+							<img class="product-img" src="img/topper_BBenCamino-removebg-preview.png" data-img="img/topper_BBenCamino-removebg-preview.png" alt="Topper Baby Shower" onclick="abrirZoom(this)">
+								<div class="tech-blueprint"></div>
+							</div>
+						<div class="card-content">
+							<div>
+								<h3 class="card-title">Topper Bebé en camino</h3>
+								<div class="important-detail">
+									📌 <strong>Importante:</strong> Diseño exclusivo para Baby Shower. Fabricado en PLA apto para contacto con alimentos.
+								</div>
+								<div class="prices-box">
+									<div class="price-row minorista">
+										<span>Precio Minorista:</span>
+										<span>$4500 c/u</span>
+									</div>
+									<div class="price-row mayorista">
+										<span>Precio Mayorista (10+):</span>
+										<span>$ c/u</span>
+									</div>
+								</div>
+							</div>
+							<div>
+								<div class="control-group">
+									<label>Color de Filamento:</label>
+									<select class="prod-color">
+										<option value="Dorado">Dorado</option>
+										<option value="Plateado">Plateado</option>
+										<option value="Amarillo Pastel">Amarillo Pastel</option>
+									</select>
+								</div>
+								<div class="control-group">
+									<label>Cantidad:</label>
+									<input type="number" class="prod-cant" value="1" min="1">
+                    </div>
+								<div class="control-group">
+									<label>Detalles / Nombre:</label>
+									<input type="text" class="prod-detalles" placeholder="Ej: Baby Shower - Nombre">
+                    </div>
+								<button class="btn-pedir" onclick="realizarPedido(this, 'Topper Baby Shower', 4500, 0)">Pedir por WhatsApp</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- PRODUCTO 3 -->
+					<div class="card" data-eventos="primer quince dieciocho">
+						<div class="card-img-container">
+							<div class="tech-blueprint"></div>
+							<div class="card-placeholder-text">Adorno de Pastel (Número + Nombre)</div>
+						</div>
+						<div class="card-content">
+							<div>
+								<h3 class="card-title">Adorno Pastel (Nº + Nombre)</h3>
+								<div class="important-detail">
+									📌 <strong>Importante:</strong> Base de soporte reforzada ultra-estable.
+								</div>
+								<div class="prices-box">
+									<div class="price-row minorista">
+										<span>Precio Minorista:</span>
+										<span>$2800 c/u</span>
+									</div>
+									<div class="price-row mayorista">
+										<span>Precio Mayorista (10+):</span>
+										<span>$2000 c/u</span>
+									</div>
+								</div>
+							</div>
+							<div>
+								<div class="control-group">
+									<label>Color de Filamento:</label>
+									<select class="prod-color">
+										<option value="Azul Metalizado">Azul Metalizado</option>
+										<option value="Plateado Seda">Plateado Seda</option>
+									</select>
+								</div>
+								<div class="control-group">
+									<label>Cantidad:</label>
+									<input type="number" class="prod-cant" value="1" min="1">
+                    </div>
+								<div class="control-group">
+									<label>Nombre y Edad:</label>
+									<input type="text" class="prod-detalles" placeholder="Ej: Bautista - 1 Añito">
+                    </div>
+								<button class="btn-pedir" onclick="realizarPedido(this, 'Adorno Pastel (Nº + Nombre)', 2800, 2000)">Pedir por WhatsApp</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+			<!-- PRODUCTO 3 (SECCIÓN DE DISEÑO PERSONALIZADO INFORMATIVO) -->
+
+
+					<div class="product-section">
+						<div class="section-header">
+							   <h2>🎨 ¡Dalle vida a tus ideas!</h2>
+							</div>	
+						
+						   <div class="grid-productos">
+
+								<div class="card" data-eventos="personalizados">
+						<div class="card-img-container">
+
+							<img class="product-img" src="img/diseno_personalizado.jpeg" alt="Diseño Personalizado" onclick="abrirZoom(this)">
+							
+							<div class="tech-blueprint"></div>
+							<div class="card-placeholder-text">¡Diseñamos tu idea 100% a medida!</div>
+						</div>
+									
+									
+						<div class="card-content">
+							<div>
+								<h3 class="card-title" style="color: var(--primary-cyan); text-transform: uppercase; font-size: 1.2rem; margin-bottom: 12px;">🎨 Diseñá lo que necesites para tu Evento</h3>
+								<div class="important-detail" style="margin-bottom: 15px;">
+									📌 <strong>¿De qué se trata?</strong> Creamos adornos, toppers, souvenirs y logos totalmente desde cero. Si tenés una idea, un personaje de anime, una silueta o un boceto, ¡nosotros le damos volumen en 3D!
+								</div>
+
+								<div style="background-color: rgba(7, 6, 15, 0.5); padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(0, 240, 255, 0.15); font-size: 0.9rem; line-height: 1.5;">
+									<p style="margin-bottom: 10px; color: var(--silver-metal);">
+										📁 <strong>Archivos que podés enviarnos:</strong><br>
+											Aceptamos imágenes en formato <strong>JPG, PNG, capturas de pantalla, bocetos hechos a mano o diseños vectoriales</strong>.
+										</p>
+									<p style="color: var(--text-white);">
+										💬 <strong>¿Cómo es el proceso?</strong><br>
+										Hacé clic abajo para escribirnos por WhatsApp. Contanos un breve detalle de lo que estás buscando, adjuntanos tu imagen en el chat y nosotros nos encargamos de tomarte el pedido, definir juntos los colores/medidas ideales y coordinar el envío o retiro.
+									
+									</p>
+								</div>
+							</div>
+							<div>
+								<button class="btn-pedir" onclick="consultarPersonalizado()" style="background: linear-gradient(135deg, var(--accent-blue) 0%, #25D366 100%);">
+									Consultar Diseño Personalizado por WhatsApp
+								</button>
+							</div>
+						</div>
+					</div>
+				  </div>
+				</div>
+				
+
+		<!-- CATEGORY 2: CARTELES CON NOMBRES PERSONALIZADOS -->
+		<div class="product-section">
+			<div class="section-header">
+				<h2>🏷️ Carteles con Nombres Personalizados</h2></div>
+			<div class="grid-productos">
+				
+				
+				<!-- PRODUCTO 4 -->
+				<div class="card" data-eventos="baby bautismo primer comunion quince casamiento">
+					<div class="card-img-container">
+						<div class="tech-blueprint"></div>
+						<div class="card-placeholder-text">Cartel de Nombre en Relieve</div>
+					</div>
+					<div class="card-content">
+						<div>
+							<h3 class="card-title">Cartel Nombre en Relieve</h3>
+							<div class="important-detail">
+								📌 <strong>Importante:</strong> Ideal para la mesa principal. Diseño en dos capas de colores combinables para máximo impacto.
+							</div>
+							<div class="prices-box">
+								<div class="price-row minorista">
+									<span>Precio Minorista:</span>
+									<span>$3.500 c/u</span>
+								</div>
+								<div class="price-row mayorista">
+									<span>Precio Mayorista (10+):</span>
+									<span>$2.600 c/u</span>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="control-group">
+								<label>Esquema de Colores:</label>
+								<select class="prod-color">
+									<option value="Azul (Fondo) y Plateado (Letra)">Azul (Fondo) y Plateado (Letra)</option>
+									<option value="Blanco (Fondo) y Celeste (Letra)">Blanco (Fondo) y Celeste (Letra)</option>
+									<option value="Negro (Fondo) y Plateado (Letra)">Negro (Fondo) y Plateado (Letra)</option>
+									<option value="Azul (Fondo) y Blanco (Letra)">Azul (Fondo) y Blanco (Letra)</option>
+								</select>
+							</div>
+							<div class="control-group">
+								<label>Cantidad:</label>
+								<input type="number" class="prod-cant" value="1" min="1">
+                    </div>
+							<div class="control-group">
+								<label>Nombre a escribir:</label>
+								<input type="text" class="prod-detalles" placeholder="Ej: Mateo">
+                    </div>
+							<button class="btn-pedir" onclick="realizarPedido(this, 'Cartel Nombre en Relieve', 3500, 2600)">Pedir por WhatsApp</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- CATEGORY 3: SOUVENIRS ADORNOS Y LLAVEROS -->
+		<div class="product-section">
+			<div class="section-header">
+				<h2>🔑 Souvenirs: Adornos & Llaveros</h2>
+			</div>
+			<div class="grid-productos">
+
+				<!-- LLAVERO "BABY LOADING" -->
+				<div class="card" data-eventos="baby">
+					<div class="card-img-container">
+						<img class="product-img" src="img/llavero_babyS-removebg-preview.png" data-img="img/llavero_babyS-removebg-preview.png" alt="Llavero Baby Loading" onclick="abrirZoom(this)">
+							<div class="tech-blueprint"></div>
+						</div>
+					<div class="card-content">
+						<div>
+							<h3 class="card-title">Llavero "Baby Loading"</h3>
+							<div class="important-detail">
+								📌 <strong>Importante:</strong> Excelente acabado 3D, incluye argolla y cadena.
+							</div>
+							<div class="prices-box">
+								<div class="price-row minorista">
+									<span>Precio Minorista:</span>
+									<span>$3.999 c/u</span>
+								</div>
+								<div class="price-row mayorista">
+									<span>Precio Mayorista (10+):</span>
+									<span>$3.599 c/u</span>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="control-group">
+								<label>Color de Filamento:</label>
+								<select class="prod-color">
+									<option value="Celeste Pastel">Celeste Pastel</option>
+									<option value="Rosa Pastel">Rosa Pastel</option>
+									<option value="Amarillo Pastel">Amarillo Pastel</option>
+								</select>
+							</div>
+							<div class="control-group">
+								<label>Cantidad:</label>
+								<input type="number" class="prod-cant" value="10" min="1">
+                    </div>
+							<div class="control-group">
+								<label>Detalles / Frase:</label>
+								<input type="text" class="prod-detalles" placeholder="Ej: Nombre o fecha del evento">
+                    </div>
+							<button class=" L" onclick="realizarPedido(this, 'Llavero Baby Loading', 3999, 3599)">Pedir por WhatsApp</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- LLAVERO 1: ESPÍRITU SANTO -->
+				<div class="card" data-eventos="comunion">
+					<div class="card-img-container">
+						<img class="product-img" src="img/llavero_aveComunion-removebg-preview.png" data-img="img/llavero_aveComunion-removebg-preview.png" alt="Llavero Espíritu Santo" onclick="abrirZoom(this)">
+							<div class="tech-blueprint"></div>
+						</div>
+					<div class="card-content">
+						<div>
+							<h3 class="card-title">Llavero Espíritu Santo</h3>
+							<div class="important-detail">
+								📌 <strong>Importante:</strong> Incluye argolla y cadena de metal niquelada.
+							</div>
+							<div class="prices-box">
+								<div class="price-row minorista">
+									<span>Precio Minorista:</span>
+									<span>$3.999 c/u</span>
+								</div>
+								<div class="price-row mayorista">
+									<span>Precio Mayorista (10+):</span>
+									<span>$3.599 c/u</span>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="control-group">
+								<label>Color de Filamento:</label>
+								<select class="prod-color">
+									<option value="Blanco y Dorado">Blanco y Dorado</option>
+									<option value="Plateado Seda">Plateado</option>
+									<option value="Blanco Puro">Blanco</option>
+								</select>
+							</div>
+							<div class="control-group">
+								<label>Cantidad:</label>
+								<input type="number" class="prod-cant" value="10" min="1">
+                    </div>
+							<div class="control-group">
+								<label>Detalles / Frase:</label>
+								<input type="text" class="prod-detalles" placeholder="Ej: Mi Comunión - Lucas">
+                    </div>
+							<button class="btn-pedir" onclick="realizarPedido(this, 'Llavero Espíritu Santo', 3999, 3599)">Pedir por WhatsApp</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- LLAVERO 2: VIRGENCITA -->
+				<div class="card" data-eventos="bautismo comunion">
+					<div class="card-img-container">
+						<img class="product-img" src="img/llavero_bautismoComunion-removebg-preview.png" data-img="img/llavero_bautismoComunion-removebg-preview.png" alt="Llavero Virgencita" onclick="abrirZoom(this)">
+							<div class="tech-blueprint"></div>
+						</div>
+					<div class="card-content">
+						<div>
+							<h3 class="card-title">Llavero Virgencita</h3>
+							<div class="important-detail">
+								📌 <strong>Importante:</strong> Incluye argolla y cadena de metal niquelada.
+							</div>
+							<div class="prices-box">
+								<div class="price-row minorista">
+									<span>Precio Minorista:</span>
+									<span>$3.999 c/u</span>
+								</div>
+								<div class="price-row mayorista">
+									<span>Precio Mayorista (10+):</span>
+									<span>$3.599 c/u</span>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="control-group">
+								<label>Color de Filamento:</label>
+								<select class="prod-color">
+									<option value="Blanco">Blanco</option>
+									<option value="Plata">Plata</option>
+								</select>
+							</div>
+							<div class="control-group">
+								<label>Cantidad:</label>
+								<input type="number" class="prod-cant" value="10" min="1">
+                    </div>
+							<div class="control-group">
+								<label>Detalles / Frase:</label>
+								<input type="text" class="prod-detalles" placeholder="Ej: Nombre y Fecha">
+                    </div>
+							<button class="btn-pedir" onclick="realizarPedido(this, 'Llavero Virgencita', 3999, 3599)">Pedir por WhatsApp</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- LLAVERO 3: CRUZ DORADA -->
+				<div class="card" data-eventos="comunion">
+					<div class="card-img-container">
+						<img class="product-img" src="img/llavero_comunion-removebg-preview.png" data-img="img/llavero_comunion-removebg-preview.png" alt="Llavero Cruz Dorada" onclick="abrirZoom(this)">
+							<div class="tech-blueprint"></div>
+						</div>
+					<div class="card-content">
+						<div>
+							<h3 class="card-title">Llavero Cruz Dorada</h3>
+							<div class="important-detail">
+								📌 <strong>Importante:</strong> Incluye argolla y cadena de metal niquelada.
+							</div>
+							<div class="prices-box">
+								<div class="price-row minorista">
+									<span>Precio Minorista:</span>
+									<span>$3.999 c/u</span>
+								</div>
+								<div class="price-row mayorista">
+									<span>Precio Mayorista (10+):</span>
+									<span>$3.599 c/u</span>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="control-group">
+								<label>Color de Filamento:</label>
+								<select class="prod-color">
+									<option value="Blanco y Dorado">Blanco y Dorado</option>
+									<option value="Blanco">Blanco</option>
+									<option value="Dorado">Dorado</option>
+								</select>
+							</div>
+							<div class="control-group">
+								<label>Cantidad:</label>
+								<input type="number" class="prod-cant" value="10" min="1">
+                    </div>
+							<div class="control-group">
+								<label>Detalles / Frase:</label>
+								<input type="text" class="prod-detalles" placeholder="Ej: Nombre">
+                    </div>
+							<button class="btn-pedir" onclick="realizarPedido(this, 'Llavero Cruz Dorada', 3999, 3599)">Pedir por WhatsApp</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- LLAVERO 4: CRUZ CON NOMBRES -->
+				<div class="card" data-eventos="bautismo comunion">
+					<div class="card-img-container">
+						<img class="product-img" src="img/llaveros_comunionBautismo-removebg-preview.png" data-img="img/llaveros_comunionBautismo-removebg-preview.png" alt="Llavero Cruz con Nombres" onclick="abrirZoom(this)">
+							<div class="tech-blueprint"></div>
+						</div>
+					<div class="card-content">
+						<div>
+							<h3 class="card-title">Llavero Cruz con Nombres</h3>
+							<div class="important-detail">
+								📌 <strong>Importante:</strong> Incluye argolla y cadena de metal niquelada.
+							</div>
+							<div class="prices-box">
+								<div class="price-row minorista">
+									<span>Precio Minorista:</span>
+									<span>$3.999 c/u</span>
+								</div>
+								<div class="price-row mayorista">
+									<span>Precio Mayorista (10+):</span>
+									<span>$3.599 c/u</span>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="control-group">
+								<label>Color de Filamento:</label>
+								<select class="prod-color">
+									<option value="Dorado">Dorado</option>
+									<option value="Amarillo Pastel">Amarillo Pastel</option>
+									<option value="Celeste Pastel">Celeste Pastel</option>
+								</select>
+							</div>
+							<div class="control-group">
+								<label>Cantidad:</label>
+								<input type="number" class="prod-cant" value="10" min="1">
+                    </div>
+							<div class="control-group">
+								<label>Nombre a escribir:</label>
+								<input type="text" class="prod-detalles" placeholder="Ej: Antonio, Sergio...">
+                    </div>
+							<button class="btn-pedir" onclick="realizarPedido(this, 'Llavero Cruz con Nombres', 3999, 3599)">Pedir por WhatsApp</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- LIGHTBOX MODAL FOR ZOOM -->
+		<div id="zoomModal" class="zoom-modal" onclick="cerrarZoom()">
+			<span class="zoom-close" onclick="cerrarZoom()">&times;</span>
+			<img class="zoom-content" id="imgZoomed">
+			<div class="zoom-caption" id="captionZoomed"></div>
+		</div>
+
+			<!-- MODAL VIDEO -->
+
+			<div id="videoModal" class="video-modal">
+
+				<span class="video-close" onclick="cerrarVideo()">
+
+					&times;
+
+				</span>
+
+				<div class="video-box">
+
+					<video
+						id="videoDemo"
+						controls=""
+						preload="none"
+						controlsList="nodownload"
+						playsinline="">
+
+						<source id="videoSource" src="" type="video/mp4">
+
+        </video>
+
+				</div>
+
+			</div>
+			
+			
+			
+		
+
+		<!-- HOW WE WORK SECTION -->
+		
+			<h2>🛠️ ¿Cómo Trabajamos?</h2>
+			<div class="steps-grid">
+				<div class="step-card"><h3>1. Elegí</h3><p>Configurás colores, cantidad y los nombres personalizados desde el catálogo.</p></div>
+				<div class="step-card"><h3>2. Enviás tu Pedido</h3><p>Tocás el botón y se te genera automáticamente el mensaje listo para enviar a nuestro WhatsApp.</p></div>
+				<div class="step-card"><h3>3. ¡Manos a la obra!</h3><p>Coordinamos la producción, confirmamos el diseño y en pocos días te lo enviamos.</p></div>
+			</div>
+		</div>
+
+			<!-- PROCESO CREATIVO -->
+			<div style="margin-top:35px; text-align:left; line-height:1.8; color:var(--silver-metal);">
+
+				<h2 style="font-size:1.5rem; color:var(--primary-cyan); margin-bottom:15px;">
+					🎨 Nuestro Proceso Creativo
+				</h2>
+
+				<p style="margin-bottom:18px;">
+					En <strong style="color:var(--text-white);">IbisMaker 3D</strong> transformamos tus ideas en objetos reales mediante tecnología de impresión 3D.
+					Cada diseño se prepara cuidadosamente para lograr piezas con excelente terminación, precisión y resistencia, cuidando cada detalle antes de comenzar la fabricación.
+				</p>
+
+				<h3 style="color:var(--primary-cyan); margin-bottom:12px;">
+					🧵 Materiales que utilizamos
+				</h3>
+
+				<p style="margin-bottom:15px;">
+					<strong style="color:var(--text-white);">PLA</strong>
+					<br>
+			Material biodegradable de origen vegetal, ideal para souvenirs, adornos, toppers y decoración.
+			Se destaca por su excelente calidad de impresión, gran nivel de detalle y acabado profesional.
+		
+				</p>
+
+				<p style="margin-bottom:15px;">
+					<strong style="color:var(--text-white);">PETG</strong>
+					<br>
+			Material de mayor resistencia mecánica y térmica.
+			Es ideal para piezas que requieren mayor durabilidad sin perder una excelente calidad estética.
+		
+				</p>
+
+				<div style="background:rgba(0,240,255,.08); border-left:4px solid var(--primary-cyan); padding:15px; border-radius:8px;">
+					✅ Tanto el <strong>PLA</strong> como el <strong>PETG</strong> son materiales ampliamente utilizados en impresión 3D.
+					No son tóxicos en condiciones normales de uso y resultan ideales para productos decorativos y personalizados.
+					Siempre recomendamos evitar exponer las piezas a temperaturas elevadas para conservar su forma y acabado.
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+		<footer>
+			<p>
+				<strong>IbisMaker 3D</strong>
+			</p>
+
+			<p>
+				🎨 Diseños personalizados • Impresión 3D • Souvenirs • Decoración para eventos
+			</p>
+
+			<p>
+				📍 Villa Tesei, Hurlingham, Buenos Aires, Argentina.
+			</p>
+
+			<p style="margin-top:18px;">
+				Hecho con precisión tridimensional para tus momentos más especiales.
+			</p>
+
+			<p style="margin-top:10px; color:var(--text-muted); font-size:.85rem;">
+				© 2026 IbisMaker 3D - Todos los derechos reservados.
+			</p>
+		</footer>
+
+
+		<div id="btnUp" onclick="window.scrollTo({top:0, behavior:'smooth'})" style="position:fixed; bottom:20px; right:20px; background:#00f0ff; color:#07060f; padding:15px; border-radius:50%; cursor:pointer; display:none; z-index:2000; font-weight:bold;">▲</div>
+
+
+		<!-- SCRIPT DE FILTRADO, ZOOM Y PEDIDOS -->
+
+		<script>
+
+			function filtrarEvento(categoria) {
+
+    // 1. Manejo de botones activos
+    const botones = document.querySelectorAll('.btn-event');
+    botones.forEach(btn => btn.classList.remove('active'));
+    if (event && event.target) event.target.classList.add('active');
+
+
+    // 2. Seleccionamos secciones y tarjetas
+    const secciones = document.querySelectorAll('.product-section');
+    const tarjetas = document.querySelectorAll('.card');
+
+
+    // 3. Primero, ocultamos TODO
+    secciones.forEach(s => s.style.display = 'none');
+    tarjetas.forEach(t => t.style.display = 'none');
+
+
+    // 4. Lógica de filtrado
+    tarjetas.forEach(tarjeta => {
+
+        const eventosAsociados = (tarjeta.getAttribute('data-eventos') || '').split(' ');
+
+
+        let mostrar = false;
+
+        if (categoria === 'todos') {
+
+            mostrar = true;
+
+        } else if (categoria === 'personalizados') {
+
+            mostrar = eventosAsociados.includes('personalizados');
+
+        } else {
+
+            mostrar = eventosAsociados.includes(categoria) &&
+			!eventosAsociados.includes('personalizados');
+
+			}
+
+			if (mostrar) {
+
+			tarjeta.style.display = 'flex';
+
+			const seccion = tarjeta.closest('.product-section');
+
+			if(seccion){
+			seccion.style.display = 'block';
+			}
+
+			}
+
+			});
+
+			}
+
+
+			// ABRIR ZOOM
+			function abrirZoom(elementoImg) {
+			const modal = document.getElementById("zoomModal");
+			const imgModal = document.getElementById("imgZoomed");
+			const caption = document.getElementById("captionZoomed");
+			modal.style.display = "flex";
+			imgModal.src = elementoImg.src;
+			caption.innerHTML = elementoImg.alt;
+			}
+
+			// CERRAR ZOOM
+			function cerrarZoom() {
+			const modal = document.getElementById("zoomModal");
+			modal.style.display = "none";
+			}
+
+
+			// REALIZAR PEDIDO
+			function realizarPedido(btn, nombreProducto, precioMin, precioMay) {
+			const card = btn.closest('.card');
+
+			// CORRECCIÓN: Buscamos la imagen de forma más robusta
+			const imgElement = card.querySelector('.product-img');
+			const imagen = imgElement ? imgElement.getAttribute('data-img') : '';
+
+			const color = card.querySelector('.prod-color').value;
+			const cantidad = parseInt(card.querySelector('.prod-cant').value) || 1;
+			const detalles = card.querySelector('.prod-detalles').value;
+			const precioUnitario = (cantidad >= 10) ? precioMay : precioMin;
+			const subtotal = precioUnitario * cantidad;
+
+			let mensaje = `¡Hola IbisMaker 3D! 👋 Quiero realizar el siguiente pedido:\n\n`;
+			mensaje += `📌 *Producto:* ${nombreProducto}\n`;
+			mensaje += `🎨 *Color de filamento:* ${color}\n`;
+			mensaje += `🔢 *Cantidad:* ${cantidad} unidad/es ${cantidad >= 10 ? '(¡Precio Mayorista Aplicado! 🥳)' : ''}\n`;
+
+			if (detalles.trim() !== "") {
+			mensaje += `📝 *Detalles:* ${detalles}\n`;
+			}
+
+			mensaje += `💵 *Precio unitario:* $${precioUnitario}\n`;
+			mensaje += `💰 *Subtotal estimado:* $${subtotal}\n`;
+
+			// --- PEGA EL NUEVO CÓDIGO AQUÍ (REEMPLAZA EL ANTERIOR) ---
+			if (imagen) {
+			const baseUrl = window.location.origin.startsWith('http') ? window.location.origin + '/' : 'https://tu-sitio-web.com/';
+			mensaje += `🖼️ *Link de la imagen:* ${baseUrl}${imagen}\n\n`;
+			} else {
+			mensaje += `\n`;
+			}
+			// ---------------------------------------------------------
+
+			mensaje += `¡Espero tu respuesta para confirmar y empezar!`;
+
+			const numeroCelular = "541131196403";
+			const url = `https://wa.me/${numeroCelular}?text=${encodeURIComponent(mensaje)}`;
+			window.open(url, '_blank');
+			}
+			// CONSULTAR PERSONALIZADO
+			function consultarPersonalizado() {
+			let mensaje = `¡Hola IbisMaker 3D! 👋 Me gustaría hacerles una consulta para un diseño personalizado para mi evento.\n\n`;
+			mensaje += `🎨 *Idea general:* (Contanos acá brevemente qué te gustaría hacer...)\n`;
+			mensaje += `📎 *Archivo/Boceto:* (Te adjunto la imagen o referencia por este chat)\n\n`;
+			mensaje += `Quiero que coordinemos los detalles del diseño, precios, materiales y los medios de envío/entrega. ¡Muchas gracias!`;
+			const numeroCelular = "541131196403";
+			const url = `https://wa.me/${numeroCelular}?text=${encodeURIComponent(mensaje)}`;
+			window.open(url, '_blank');
+			}
+
+			// BUSCADOR
+			function buscarProducto() {
+			let input = document.getElementById('searchInput').value.toLowerCase();
+			let cards = document.querySelectorAll('.card');
+			let noResults = document.getElementById('noResults');
+			let encontrados = 0;
+			cards.forEach(card => {
+			let title = card.querySelector('.card-title').innerText.toLowerCase();
+			if (title.includes(input)) {
+			card.style.setProperty('display', 'flex', 'important');
+			encontrados++;
+			} else {
+			card.style.setProperty('display', 'none', 'important');
+			}
+			});
+			noResults.style.display = (encontrados === 0 && input !== "") ? 'block' : 'none';
+			}
+
+
+			/*===================================
+			MODAL VIDEO
+			===================================*/
+
+			function abrirVideo(ruta){
+
+			const modal = document.getElementById("videoModal");
+
+			const video = document.getElementById("videoDemo");
+
+			const source = document.getElementById("videoSource");
+
+
+			source.src = ruta;
+
+			modal.style.display = "flex";
+
+
+			video.load();
+
+			video.play();
+
+			}
+
+			function cerrarVideo(){
+
+			const modal=document.getElementById("videoModal");
+
+			const video=document.getElementById("videoDemo");
+
+			video.pause();
+
+			video.currentTime=0;
+
+			modal.style.display="none";
+
+			}
+
+
+			document.getElementById("videoModal").addEventListener("click",function(e){
+
+			if(e.target===this){
+
+			cerrarVideo();
+
+			}
+
+			});
+
+
+			/*===================================
+			WHATSAPP INVITACIONES
+			===================================*/
+
+			function consultarInvitacion(){
+
+			let mensaje=`¡Hola IbisMaker 3D! 👋
+
+			Me gustaría recibir información sobre las Invitaciones Digitales Personalizadas.
+
+			Quisiera conocer:
+
+			📌 Precio
+
+			📌 Tiempo de entrega
+
+			📌 Opciones disponibles
+
+			📌 Cómo es el proceso de diseño.
+
+			¡Muchas gracias!`;
+
+			window.open(
+
+			"https://wa.me/541131196403?text="+encodeURIComponent(mensaje),
+
+			"_blank"
+
+			);
+
+			}
+
+
+
+
+
+
+			// SCROLL
+			window.onscroll = function() {
+			let btn = document.getElementById("btnUp");
+			if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+			btn.style.display = "block";
+			} else {
+			btn.style.display = "none";
+			}
+			};
+		</script>
+
+
+	
+	</body>
+</html>
