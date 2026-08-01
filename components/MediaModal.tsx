@@ -65,7 +65,7 @@ export default function MediaModal({ product, onClose }: Props) {
               playsInline
               preload="metadata"
               className="video-player"
-              poster={product.image}
+              poster={product.posterImage || product.image}
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
             >

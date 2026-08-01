@@ -26,7 +26,7 @@ export default function ProductCard({ product, compact = false, layout = 'defaul
   };
 
   const actionButtons = () => {
-    if (product.category === 'personalizados') {
+    if (product.category === 'personalizados' || product.category === 'diseños-personalizados') {
       return <button className="btn-pedir" onClick={() => onOrder(product)}>Consultar Diseño Personalizado</button>;
     }
 
@@ -46,11 +46,13 @@ export default function ProductCard({ product, compact = false, layout = 'defaul
     return <button className="btn-pedir" onClick={() => onOrder(product)}>Consultar Precio</button>;
   };
 
+  const cardClasses = ['card', compact ? 'card--compact' : '', `card--${layout}`, product.category === 'invitaciones-digitales' ? 'card--invitaciones' : ''].filter(Boolean).join(' ');
+
   return (
-    <article className={`card ${compact ? 'card--compact' : ''} card--${layout}`} ref={cardRef}>
+    <article className={cardClasses} ref={cardRef}>
       <div className="card-img-container" onClick={() => onOpenMedia(product)} style={{ cursor: 'pointer' }}>
         {isVideo ? (
-          <video className="product-img" autoPlay muted loop playsInline preload="metadata">
+          <video className="product-img" autoPlay muted loop playsInline preload="metadata" poster={product.posterImage || product.image}>
             <source src={product.videoSrc} type="video/mp4" />
           </video>
         ) : (
@@ -65,19 +67,18 @@ export default function ProductCard({ product, compact = false, layout = 'defaul
           {product.priceMinorista > 0 ? (
             <div className="prices-box">
               <div className="price-row minorista">
-                <span>Precio Minorista:</span>
+                <span>Precio:</span>
                 <span>${product.priceMinorista.toLocaleString('es-AR')} c/u</span>
               </div>
-              {product.priceMayorista > 0 ? (
-                <div className="price-row mayorista">
-                  <span>Precio Mayorista (10+):</span>
-                  <span>${product.priceMayorista.toLocaleString('es-AR')} c/u</span>
-                </div>
-              ) : null}
             </div>
           ) : null}
         </div>
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          {product.category === 'personalizados' || product.category === 'diseños-personalizados' ? (
+            <div className="important-detail" style={{ marginBottom: 0 }}>
+              📎 Podés enviarnos fotos, referencias, textos o archivos en formato JPG, PNG, PDF o AI para empezar. Si lo necesitás, también podemos ayudarte a armar el diseño desde cero y coordinarlo por WhatsApp.
+            </div>
+          ) : null}
           {product.colors.length > 0 ? (
             <div className="control-group">
               <label>Color de Filamento:</label>
@@ -100,7 +101,9 @@ export default function ProductCard({ product, compact = false, layout = 'defaul
               ) : null}
             </>
           ) : null}
-          {actionButtons()}
+          <div style={{ marginTop: 0 }}>
+            {actionButtons()}
+          </div>
         </div>
       </div>
     </article>

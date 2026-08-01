@@ -108,6 +108,46 @@ header .slogan {
   letter-spacing: 0.5px;
 }
 
+.hero-banner {
+  max-width: 760px;
+  margin: 0 auto 24px;
+  padding: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: transparent;
+  border: 1px solid rgba(0, 240, 255, 0.16);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+  pointer-events: none;
+}
+
+.hero-banner:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 240, 255, 0.35);
+  box-shadow: 0 14px 28px rgba(0, 240, 255, 0.12);
+}
+
+.hero-banner--video-only {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.hero-banner-media {
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.16), rgba(27, 92, 242, 0.16));
+  aspect-ratio: 16 / 10;
+}
+
+.hero-banner-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .whatsapp-main {
   display: inline-flex;
   align-items: center;
@@ -223,15 +263,13 @@ header .slogan {
   justify-content: space-between;
   position: relative;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
+  min-height: 600px;
 }
 
-.card--wide {
-  grid-column: span 8;
-}
-
+.card--wide,
 .card--featured {
-  grid-column: span 8;
-  grid-row: span 2;
+  grid-column: span 4;
+  grid-row: span 1;
 }
 
 .card:hover {
@@ -240,17 +278,57 @@ header .slogan {
   border-color: var(--primary-cyan);
 }
 
+.card--compact {
+  min-height: 320px;
+}
+
 .card--compact .card-content {
   padding: 16px;
+  min-height: auto;
 }
 
 .card--compact .card-title {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
 }
 
 .card--compact .important-detail {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
+  margin-bottom: 8px;
+  padding: 7px 10px;
+}
+
+.card--compact .prices-box {
+  padding: 10px;
   margin-bottom: 10px;
+}
+
+.card--compact .control-group {
+  margin-bottom: 8px;
+}
+
+.card--compact .btn-pedir {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+}
+
+.card--invitaciones {
+  min-height: 520px;
+}
+
+.card--invitaciones .card-content {
+  padding: 16px 16px 16px;
+  gap: 12px;
+}
+
+.card--invitaciones .important-detail {
+  margin-bottom: 10px;
+}
+
+.card--invitaciones .btn-pedir {
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 1rem;
 }
 
 .card-img-container {
@@ -279,9 +357,10 @@ header .slogan {
   transform: scale(1.04);
 }
 
-.card--featured .card-img-container {
-  min-height: 320px;
-  height: 320px;
+.card--featured .card-img-container,
+.card--wide .card-img-container {
+  min-height: 240px;
+  height: 240px;
 }
 
 .tech-blueprint {
@@ -306,11 +385,12 @@ header .slogan {
 }
 
 .card-content {
-  padding: 20px;
+  padding: 16px 16px 14px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   justify-content: space-between;
+  gap: 8px;
 }
 
 .card-title {
@@ -322,11 +402,11 @@ header .slogan {
 .important-detail {
   background-color: rgba(27, 92, 242, 0.15);
   border-left: 4px solid var(--accent-blue);
-  padding: 8px 12px;
+  padding: 7px 10px;
   border-radius: 0 8px 8px 0;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: #d1dcff;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 
 .important-detail strong {
@@ -390,7 +470,7 @@ select:focus, input:focus {
 .btn-pedir {
   display: block;
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
   color: white;
   border: none;
@@ -401,7 +481,7 @@ select:focus, input:focus {
   transition: all 0.3s ease;
   text-align: center;
   text-decoration: none;
-  margin-top: 10px;
+  margin-top: 6px;
   box-shadow: 0 4px 10px rgba(37, 211, 102, 0.15);
 }
 
@@ -409,6 +489,32 @@ select:focus, input:focus {
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
   filter: brightness(1.1);
+}
+
+.btn-scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2001;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1b5cf2 0%, #00f0ff 100%);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 240, 255, 0.25);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-scroll-top:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 240, 255, 0.35);
 }
 
 .workflow-section {
@@ -471,70 +577,6 @@ footer p {
   margin-bottom: 10px;
 }
 
-.filter-bar {
-  max-width: 1180px;
-  margin: 18px auto 30px;
-  padding: 12px 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  background: linear-gradient(90deg, rgba(16, 14, 33, 0.95), rgba(7, 6, 15, 0.95));
-  border: 1px solid rgba(0, 240, 255, 0.2);
-  border-radius: 999px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(12px);
-}
-
-.filter-pills {
-  display: flex;
-  flex: 1;
-  min-width: 0;
-  gap: 10px;
-  overflow: hidden;
-  justify-content: center;
-}
-
-.filter-pill,
-.view-toggle-btn,
-.carousel-nav {
-  border: 1px solid rgba(166, 180, 201, 0.2);
-  background: rgba(16, 14, 33, 0.85);
-  color: var(--silver-metal);
-  border-radius: 999px;
-  padding: 9px 14px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.carousel-nav {
-  min-width: 42px;
-  justify-content: center;
-  font-size: 1.1rem;
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(27, 92, 242, 0.2));
-}
-
-.filter-pill:hover,
-.filter-pill.active,
-.view-toggle-btn:hover,
-.view-toggle-btn.active,
-.carousel-nav:hover {
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(27, 92, 242, 0.2));
-  color: var(--text-white);
-  border-color: var(--primary-cyan);
-  box-shadow: 0 0 12px rgba(0, 240, 255, 0.18);
-  transform: translateY(-1px);
-}
-
-.view-toggle {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
 
 .search-container {
   max-width: 600px;
@@ -655,6 +697,9 @@ footer p {
 @media (max-width: 768px) {
   header h1 { font-size: 2.2rem; }
   header .slogan { font-size: 1.1rem; }
+  .hero-banner {
+    margin-bottom: 18px;
+  }
   .grid-productos {
     grid-template-columns: 1fr;
     gap: 20px;
