@@ -83,6 +83,7 @@ export default function Storefront() {
 
     const preferredOrder = [
       '🎂 Adornos para Pastel / Toppers',
+      '🏺 Centros de mesa / Accesorios',
       '🏷️ Letreros con nombres personalizados',
       '🔑 Souvenirs: Adornos & Llaveros / Soporte exhibidor',
     ];

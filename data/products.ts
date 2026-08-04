@@ -10,7 +10,7 @@ export type Product = {
   colors: string[];
   detailsLabel?: string;
   placeholder?: string;
-  category: 'adornos-pastel' | 'diseños-personalizados' | 'letreros-nombres' | 'souvenirs-llaveros' | 'invitaciones-digitales' | 'personalizados';
+  category: 'adornos-pastel' | 'diseños-personalizados' | 'letreros-nombres' | 'souvenirs-llaveros' | 'invitaciones-digitales' | 'centros-mesa' | 'personalizados';
   variant?: 'video' | 'image';
   videoSrc?: string;
   ctaLabel?: string;
@@ -59,6 +59,20 @@ export const products: Product[] = [
     placeholder: 'Ej: Bautista - 1 Añito',
     category: 'adornos-pastel',
     sectionTitle: '🎂 Adornos para Pastel / Toppers',
+  },
+  {
+    id: 'centro-mesa-mamadera',
+    title: 'Centro de Mesa Mamadera',
+    events: ['baby'],
+    image: '/img/mamadera.png',
+    imageAlt: 'Centro de Mesa Mamadera',
+    important: 'Centro de mesa con forma de mamadera, ideal para Baby Shower.',
+    price: 3500,
+    colors: ['Blanco', 'Rosa Pastel'],
+    detailsLabel: 'Nombre o dedicatoria',
+    placeholder: 'Ej: Sofía',
+    category: 'centros-mesa',
+    sectionTitle: '🏺 Centros de mesa / Accesorios',
   },
   {
     id: 'diseño-personalizado',
