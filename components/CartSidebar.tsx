@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from 'react';
+import { formatTitle } from '@/utils/formatTitle';
 import type { Product } from '@/data/products';
 
 type Props = {
@@ -9,7 +10,8 @@ type Props = {
 };
 
 export default function CartSidebar({ items, onRemove }: Props) {
-  const total = useMemo(() => items.reduce((sum, item) => sum + item.product.priceMinorista * item.quantity, 0), [items]);
+  const totalItems = useMemo(() => items.reduce((sum, item) => sum + item.quantity, 0), [items]);
+  const totalPrice = useMemo(() => items.reduce((sum, item) => sum + item.product.price * item.quantity, 0), [items]);
 
   if (items.length === 0) return null;
 
@@ -19,7 +21,7 @@ export default function CartSidebar({ items, onRemove }: Props) {
       {items.map((item) => (
         <div key={item.product.id} style={{ marginBottom: 12, paddingBottom: 12, borderBottom: '1px solid rgba(255,255,255,.08)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <strong>{item.product.title}</strong>
+            <strong>{formatTitle(item.product.title)}</strong>
             <button onClick={() => onRemove(item.product.id)} style={{ background: 'transparent', border: 'none', color: '#ff6b6b', cursor: 'pointer' }}>✕</button>
           </div>
           <div style={{ fontSize: '.85rem', color: '#a6b4c9' }}>
@@ -28,7 +30,8 @@ export default function CartSidebar({ items, onRemove }: Props) {
           {item.details ? <div style={{ fontSize: '.8rem', color: '#8d9bb0' }}>{item.details}</div> : null}
         </div>
       ))}
-      <div style={{ marginTop: 8, fontWeight: 700 }}>Total estimado: ${total.toLocaleString('es-AR')}</div>
+      <div style={{ marginTop: 8, fontWeight: 700 }}>Cantidad total: {totalItems}</div>
+      <div style={{ marginTop: 8, fontWeight: 700 }}>Total estimado: ${totalPrice.toLocaleString('es-AR')}</div>
     </aside>
   );
 }

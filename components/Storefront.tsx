@@ -6,6 +6,7 @@ import ProductCard from '@/components/ProductCard';
 import MediaModal from '@/components/MediaModal';
 import CartSidebar from '@/components/CartSidebar';
 import { products, type Product } from '@/data/products';
+import { formatTitle } from '@/utils/formatTitle';
 
 const events = [
   { id: 'todos', label: 'Todos' },
@@ -39,15 +40,12 @@ function makeWhatsAppMessage(items: CartItem[], baseUrl = '') {
       ? new URL(imagePath, baseUrl).toString()
       : imagePath || '';
 
-    lines.push(`📌 *Producto ${index + 1}:* ${item.product.title}`);
+    lines.push(`📌 *Producto ${index + 1}:* ${formatTitle(item.product.title)}`);
     lines.push(`🎨 *Color:* ${item.color}`);
     lines.push(`🔢 *Cantidad:* ${item.quantity} unidad/es`);
+    if (item.product.price > 0) lines.push(`💵 *Precio unitario:* $${item.product.price}`);
     if (item.details) lines.push(`📝 *Detalles:* ${item.details}`);
     if (imageUrl) lines.push(`🖼️ *Referencia visual:* ${imageUrl}`);
-    const unitPrice = item.quantity >= 10 ? item.product.priceMayorista || item.product.priceMinorista : item.product.priceMinorista;
-    const subtotal = unitPrice * item.quantity;
-    lines.push(`💵 *Precio unitario:* $${unitPrice}`);
-    lines.push(`💰 *Subtotal estimado:* $${subtotal}`);
     lines.push('');
   });
   lines.push('¡Espero tu respuesta para confirmar y empezar!');
@@ -83,13 +81,26 @@ export default function Storefront() {
       return acc;
     }, {});
 
-    return Object.entries(grouped).map(([title, items]) => ({ title, items }));
+    const preferredOrder = [
+      '🎂 Adornos para Pastel / Toppers',
+      '🏷️ Letreros con nombres personalizados',
+      '🔑 Souvenirs: Adornos & Llaveros / Soporte exhibidor',
+    ];
+
+    const orderedSections = preferredOrder
+      .filter((title) => grouped[title])
+      .map((title) => ({ title, items: grouped[title] }));
+
+    const otherSections = Object.entries(grouped)
+      .filter(([title]) => !preferredOrder.includes(title))
+      .map(([title, items]) => ({ title, items }));
+
+    return [...orderedSections, ...otherSections];
   }, [visibleProducts]);
 
   const handleOpenMedia = (product: Product) => setSelectedMedia(product);
 
   const handleAddToCart = (product: Product, payload: { color: string; quantity: number; details: string }) => {
-    if (product.priceMinorista <= 0) return;
     setCart((prev) => {
       const index = prev.findIndex((item) => item.product.id === product.id);
       if (index >= 0) {

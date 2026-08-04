@@ -1,6 +1,7 @@
 "use client";
 
 import Image from 'next/image';
+import { formatTitle } from '@/utils/formatTitle';
 import { useRef } from 'react';
 import type { Product } from '@/data/products';
 
@@ -34,16 +35,16 @@ export default function ProductCard({ product, compact = false, layout = 'defaul
       return (
         <>
           <button className="btn-pedir" onClick={() => onOpenMedia(product)}>{product.ctaLabel || 'Ver Demostración'}</button>
-          <button className="btn-pedir" onClick={() => onOrder(product)} style={{ marginTop: 10 }}>Consultar Precio</button>
+          {product.price > 0 ? (
+            <button className="btn-pedir" onClick={handleAddToCart} style={{ marginTop: 10 }}>Agregar al carrito</button>
+          ) : (
+            <button className="btn-pedir" onClick={() => onOrder(product)} style={{ marginTop: 10 }}>Consultar Precio</button>
+          )}
         </>
       );
     }
 
-    if (product.priceMinorista > 0) {
-      return <button className="btn-pedir" onClick={handleAddToCart}>Agregar al carrito</button>;
-    }
-
-    return <button className="btn-pedir" onClick={() => onOrder(product)}>Consultar Precio</button>;
+    return product.price > 0 ? <button className="btn-pedir" onClick={handleAddToCart}>Agregar al carrito</button> : <button className="btn-pedir" onClick={() => onOrder(product)}>Consultar Precio</button>;
   };
 
   const cardClasses = ['card', compact ? 'card--compact' : '', `card--${layout}`, product.category === 'invitaciones-digitales' ? 'card--invitaciones' : ''].filter(Boolean).join(' ');
@@ -62,13 +63,13 @@ export default function ProductCard({ product, compact = false, layout = 'defaul
       </div>
       <div className="card-content">
         <div>
-          <h3 className="card-title">{product.title}</h3>
+          <h3 className="card-title">{formatTitle(product.title)}</h3>
           <div className="important-detail">📌 <strong>Importante:</strong> {product.important}</div>
-          {product.priceMinorista > 0 ? (
+          {product.price > 0 ? (
             <div className="prices-box">
               <div className="price-row minorista">
                 <span>Precio:</span>
-                <span>${product.priceMinorista.toLocaleString('es-AR')} c/u</span>
+                <span>${product.price.toLocaleString('es-AR')} c/u</span>
               </div>
             </div>
           ) : null}
@@ -87,7 +88,7 @@ export default function ProductCard({ product, compact = false, layout = 'defaul
               </select>
             </div>
           ) : null}
-          {product.priceMinorista > 0 ? (
+          {(product.category !== 'diseños-personalizados' && product.variant !== 'video') ? (
             <>
               <div className="control-group">
                 <label>Cantidad:</label>
