@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react';
 import ProductCard from '@/components/ProductCard';
 import MediaModal from '@/components/MediaModal';
 import CartSidebar from '@/components/CartSidebar';
-import { products, type Product } from '@/data/products';
+import { type Product } from '@/data/products';
 import { formatTitle } from '@/utils/formatTitle';
 
 const events = [
@@ -23,7 +23,9 @@ const events = [
   { id: 'invitaciones', label: 'Invitaciones' },
 ];
 
-const promoProduct = products.find((product) => product.id === 'invitacion-interactiva-1') ?? null;
+type Props = {
+  products: Product[];
+};
 
 type CartItem = {
   product: Product;
@@ -52,11 +54,16 @@ function makeWhatsAppMessage(items: CartItem[], baseUrl = '') {
   return lines.join('\n');
 }
 
-export default function Storefront() {
+export default function Storefront({ products }: Props) {
   const [activeFilter, setActiveFilter] = useState('todos');
   const [search, setSearch] = useState('');
   const [selectedMedia, setSelectedMedia] = useState<Product | null>(null);
   const [cart, setCart] = useState<CartItem[]>([]);
+
+  const promoProduct = useMemo(
+    () => products.find((product) => product.identifier === 'invitacion-interactiva-1') ?? null,
+    [products],
+  );
 
   const visibleProducts = useMemo(() => {
     const query = search.toLowerCase();
@@ -71,7 +78,7 @@ export default function Storefront() {
       const matchesSearch = product.title.toLowerCase().includes(query);
       return matchesFilter && matchesSearch;
     });
-  }, [activeFilter, search]);
+  }, [products, activeFilter, search]);
 
   const sections = useMemo(() => {
     const grouped = visibleProducts.reduce<Record<string, Product[]>>((acc, product) => {
@@ -103,7 +110,7 @@ export default function Storefront() {
 
   const handleAddToCart = (product: Product, payload: { color: string; quantity: number; details: string }) => {
     setCart((prev) => {
-      const index = prev.findIndex((item) => item.product.id === product.id);
+      const index = prev.findIndex((item) => item.product.identifier === product.identifier);
       if (index >= 0) {
         const updated = [...prev];
         updated[index] = { ...updated[index], quantity: updated[index].quantity + payload.quantity, color: payload.color, details: payload.details || updated[index].details };
@@ -124,7 +131,7 @@ export default function Storefront() {
     window.open(`https://wa.me/541131196403?text=${encodeURIComponent(message)}`, '_blank');
   };
 
-  const handleRemoveFromCart = (productId: string) => setCart((prev) => prev.filter((item) => item.product.id !== productId));
+  const handleRemoveFromCart = (identifier: string) => setCart((prev) => prev.filter((item) => item.product.identifier !== identifier));
 
   return (
     <main>
@@ -193,7 +200,7 @@ export default function Storefront() {
             <div className="grid-productos">
               {section.items.map((product) => (
                 <ProductCard
-                  key={product.id}
+                  key={product.identifier}
                   product={product}
                   layout="default"
                   onOpenMedia={handleOpenMedia}

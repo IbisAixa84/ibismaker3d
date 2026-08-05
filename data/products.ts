@@ -1,5 +1,5 @@
 export type Product = {
-  id: string;
+  identifier: string;
   title: string;
   events: string[];
   image: string;
@@ -19,7 +19,7 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    id: 'topper-boy',
+    identifier: 'topper-boy',
     title: 'Topper Boy O Girl',
     events: ['baby'],
     image: '/img/topper_boyOgirl-removebg-preview.png',
@@ -33,7 +33,7 @@ export const products: Product[] = [
     sectionTitle: '🎂 Adornos para Pastel / Toppers',
   },
   {
-    id: 'topper-baby',
+    identifier: 'topper-baby',
     title: 'Topper Bebé en Camino',
     events: ['baby'],
     image: '/img/topper_BBenCamino-removebg-preview.png',
@@ -47,7 +47,7 @@ export const products: Product[] = [
     sectionTitle: '🎂 Adornos para Pastel / Toppers',
   },
   {
-    id: 'adorno-pastel',
+    identifier: 'adorno-pastel',
     title: 'ADORNOs de PASTEl Baby Girl',
     events: ['baby'],
     image: '/img/topper_varios-removebg-preview.png',
@@ -61,7 +61,7 @@ export const products: Product[] = [
     sectionTitle: '🎂 Adornos para Pastel / Toppers',
   },
   {
-    id: 'centro-mesa-mamadera',
+    identifier: 'centro-mesa-mamadera',
     title: 'Centro de Mesa Mamadera',
     events: ['baby'],
     image: '/img/mamadera.png',
@@ -75,7 +75,7 @@ export const products: Product[] = [
     sectionTitle: '🏺 Centros de mesa / Accesorios',
   },
   {
-    id: 'diseño-personalizado',
+    identifier: 'diseño-personalizado',
     title: 'Diseñá lo Que Necesites para Tu Evento',
     events: ['personalizados'],
     image: '/img/diseno_personalizado.jpeg',
@@ -87,7 +87,7 @@ export const products: Product[] = [
     sectionTitle: '🎨 ¡Dalle vida a tus ideas!',
   },
   {
-    id: 'cartel-nombre',
+    identifier: 'cartel-nombre',
     title: 'Sr y Sra con Corazón',
     events: ['casamiento'],
     image: '/img/letrero_novios.png',
@@ -101,7 +101,7 @@ export const products: Product[] = [
     sectionTitle: '🏷️ Letreros con nombres personalizados',
   },
   {
-    id: 'cartel-globo-aerostatico',
+    identifier: 'cartel-globo-aerostatico',
     title: 'Cartel Globo Aerostático',
     events: ['nacimiento'],
     image: '/img/cartel_globoAer.png',
@@ -115,7 +115,7 @@ export const products: Product[] = [
     sectionTitle: '🏷️ Letreros con nombres personalizados',
   },
   {
-    id: 'adorno-boda-mr-mrs',
+    identifier: 'adorno-boda-mr-mrs',
     title: 'Adorno de Pastel Mr & Mrs',
     events: ['casamiento'],
     image: '/img/Adorno_boda.png',
@@ -129,7 +129,7 @@ export const products: Product[] = [
     sectionTitle: '🎂 Adornos para Pastel / Toppers',
   },
   {
-    id: 'adorno-pareja-perro',
+    identifier: 'adorno-pareja-perro',
     title: 'Adorno de Pastel Pareja con su Perro',
     events: ['casamiento'],
     image: '/img/adorno_pareja.png',
@@ -143,7 +143,7 @@ export const products: Product[] = [
     sectionTitle: '🎂 Adornos para Pastel / Toppers',
   },
   {
-    id: 'adorno-boda-varios',
+    identifier: 'adorno-boda-varios',
     title: 'Adorno de Pastel Varios',
     events: ['casamiento'],
     image: '/img/adornos_bodas.png',
@@ -157,7 +157,7 @@ export const products: Product[] = [
     sectionTitle: '🎂 Adornos para Pastel / Toppers',
   },
   {
-    id: 'regalo-bodas',
+    identifier: 'regalo-bodas',
     title: 'Regalo de Bodas',
     events: ['casamiento'],
     image: '/img/regaloBodas.png',
@@ -171,7 +171,7 @@ export const products: Product[] = [
     sectionTitle: '🔑 Souvenirs: Adornos & Llaveros / Soporte exhibidor',
   },
   {
-    id: 'mi-primera-comunion',
+    identifier: 'mi-primera-comunion',
     title: 'Mi Primera Comunión',
     events: ['comunion'],
     image: '/img/topper_comunion.png',
@@ -185,7 +185,7 @@ export const products: Product[] = [
     sectionTitle: '🎂 Adornos para Pastel / Toppers',
   },
   {
-    id: 'adorno-comunion',
+    identifier: 'adorno-comunion',
     title: 'Adorno Comunión',
     events: ['comunion'],
     image: '/img/adorno_comunion.png',
@@ -199,7 +199,7 @@ export const products: Product[] = [
     sectionTitle: '🏷️ Letreros con nombres personalizados',
   },
   {
-    id: 'llavero-baby',
+    identifier: 'llavero-baby',
     title: 'Llavero "Baby Loading"',
     events: ['baby'],
     image: '/img/llavero_babyS-removebg-preview.png',
@@ -213,7 +213,7 @@ export const products: Product[] = [
     sectionTitle: '🔑 Souvenirs: Adornos & Llaveros / Soporte exhibidor',
   },
   {
-    id: 'letrero-baby',
+    identifier: 'letrero-baby',
     title: 'Letrero Baby',
     events: ['baby'],
     image: '/img/letrero_bb.png',
@@ -227,7 +227,7 @@ export const products: Product[] = [
     sectionTitle: '🏷️ Letreros con nombres personalizados',
   },
   {
-    id: 'adorno-mi-primer-anito',
+    identifier: 'adorno-mi-primer-anito',
     title: 'Adorno Mi Primer Añito',
     events: ['primer'],
     image: '/img/adorno1.png',
@@ -241,7 +241,7 @@ export const products: Product[] = [
     sectionTitle: '🎂 Adornos para Pastel / Toppers',
   },
   {
-    id: 'llavero-animalitos-safari',
+    identifier: 'llavero-animalitos-safari',
     title: 'Llavero Animalitos Safari',
     events: ['primer'],
     image: '/img/llaveros_animalesSafari.png',
@@ -255,7 +255,7 @@ export const products: Product[] = [
     sectionTitle: '🔑 Souvenirs: Adornos & Llaveros / Soporte exhibidor',
   },
   {
-    id: 'inicial-decorada',
+    identifier: 'inicial-decorada',
     title: 'Inicial Decorada',
     events: ['primer'],
     image: '/img/cartel.png',
@@ -269,7 +269,7 @@ export const products: Product[] = [
     sectionTitle: '🏷️ Letreros con nombres personalizados',
   },
   {
-    id: 'cuadro-recuerdo-nacimiento',
+    identifier: 'cuadro-recuerdo-nacimiento',
     title: 'Cuadro Recuerdo Nacimiento',
     events: ['nacimiento'],
     image: '/img/cuadroRecuerdo.png',
@@ -283,7 +283,7 @@ export const products: Product[] = [
     sectionTitle: '🏷️ Letreros con nombres personalizados',
   },
   {
-    id: 'llavero-espiritu',
+    identifier: 'llavero-espiritu',
     title: 'Llavero Espíritu Santo',
     events: ['comunion'],
     image: '/img/llavero_aveComunion-removebg-preview.png',
@@ -297,7 +297,7 @@ export const products: Product[] = [
     sectionTitle: '🔑 Souvenirs: Adornos & Llaveros / Soporte exhibidor',
   },
   {
-    id: 'llavero-virgencita',
+    identifier: 'llavero-virgencita',
     title: 'Llavero Virgencita',
     events: ['bautismo', 'comunion'],
     image: '/img/llavero_bautismoComunion-removebg-preview.png',
@@ -311,7 +311,7 @@ export const products: Product[] = [
     sectionTitle: '🔑 Souvenirs: Adornos & Llaveros / Soporte exhibidor',
   },
   {
-    id: 'mi-bautismo',
+    identifier: 'mi-bautismo',
     title: 'Mi Bautismo',
     events: ['bautismo'],
     image: '/img/topper_bautismo.png',
@@ -325,7 +325,7 @@ export const products: Product[] = [
     sectionTitle: '🎂 Adornos para Pastel / Toppers',
   },
   {
-    id: 'angel-de-la-guarda',
+    identifier: 'angel-de-la-guarda',
     title: 'Angel de la Guarda',
     events: ['bautismo'],
     image: '/img/angel_guarda.png',
@@ -339,7 +339,7 @@ export const products: Product[] = [
     sectionTitle: '🏷️ Letreros con nombres personalizados',
   },
   {
-    id: 'llavero-nacimiento',
+    identifier: 'llavero-nacimiento',
     title: 'Llavero de Pies de Bebé + Corazón',
     events: ['nacimiento'],
     image: '/img/llavero_nac1.png',
@@ -353,7 +353,7 @@ export const products: Product[] = [
     sectionTitle: '🔑 Souvenirs: Adornos & Llaveros / Soporte exhibidor',
   },
   {
-    id: 'llavero-bebe',
+    identifier: 'llavero-bebe',
     title: 'Llavero Bebé',
     events: ['nacimiento'],
     image: '/img/llavero_nac2.png',
@@ -367,7 +367,7 @@ export const products: Product[] = [
     sectionTitle: '🔑 Souvenirs: Adornos & Llaveros / Soporte exhibidor',
   },
   {
-    id: 'llavero-cachorro-tejido',
+    identifier: 'llavero-cachorro-tejido',
     title: 'Llavero de Cachorro Tejido',
     events: ['nacimiento'],
     image: '/img/llavero_nac3.png',
@@ -381,7 +381,7 @@ export const products: Product[] = [
     sectionTitle: '🔑 Souvenirs: Adornos & Llaveros / Soporte exhibidor',
   },
   {
-    id: 'invitacion-interactiva-1',
+    identifier: 'invitacion-interactiva-1',
     title: '💌 Invitación Interactiva 1',
     events: ['invitaciones'],
     image: '/img/invitacion_digitalH.png',
@@ -397,7 +397,7 @@ export const products: Product[] = [
     sectionTitle: '💌 Invitaciones Digitales Personalizadas',
   },
   {
-    id: 'invitacion-interactiva-2',
+    identifier: 'invitacion-interactiva-2',
     title: '💌 Invitación Interactiva 2',
     events: ['invitaciones'],
     image: '/img/invitacion_estatica.jpeg',
@@ -413,7 +413,7 @@ export const products: Product[] = [
     sectionTitle: '💌 Invitaciones Digitales Personalizadas',
   },
   {
-    id: 'invitacion-estatica-1',
+    identifier: 'invitacion-estatica-1',
     title: '🖼 Invitación Estática 1',
     events: ['invitaciones'],
     image: '/img/invitacion_digitalH.png',
@@ -426,7 +426,7 @@ export const products: Product[] = [
     sectionTitle: '💌 Invitaciones Digitales Personalizadas',
   },
   {
-    id: 'invitacion-estatica-2',
+    identifier: 'invitacion-estatica-2',
     title: '💌 Invitación Estática 2',
     events: ['invitaciones'],
     image: '/img/invitacion_estatica2.jpeg',
@@ -439,7 +439,7 @@ export const products: Product[] = [
     sectionTitle: '💌 Invitaciones Digitales Personalizadas',
   },
   {
-    id: 'adorno-mis-15',
+    identifier: 'adorno-mis-15',
     title: 'Adorno Mis 15',
     events: ['quince'],
     image: '/img/misXV.png',
@@ -453,7 +453,7 @@ export const products: Product[] = [
     sectionTitle: '🎂 Adornos para Pastel / Toppers',
   },
   {
-    id: 'letrero-mis-15',
+    identifier: 'letrero-mis-15',
     title: 'Letrero Mis 15',
     events: ['quince'],
     image: '/img/letreroxv.png',
@@ -467,7 +467,7 @@ export const products: Product[] = [
     sectionTitle: '🏷️ Letreros con nombres personalizados',
   },
   {
-    id: 'poni-mis-15',
+    identifier: 'poni-mis-15',
     title: 'Poni',
     events: ['quince'],
     image: '/img/ponixv.png',
@@ -481,7 +481,7 @@ export const products: Product[] = [
     sectionTitle: '🔑 Souvenirs: Adornos & Llaveros / Soporte exhibidor',
   },
   {
-    id: 'adorno-mis-18',
+    identifier: 'adorno-mis-18',
     title: 'Adorno Mis 18',
     events: ['dieciocho'],
     image: '/img/misxvlll.png',
@@ -495,7 +495,7 @@ export const products: Product[] = [
     sectionTitle: '🎂 Adornos para Pastel / Toppers',
   },
   {
-    id: 'letrero-mis-18',
+    identifier: 'letrero-mis-18',
     title: 'Letrero Mis 18',
     events: ['dieciocho'],
     image: '/img/letreroxvlll.png',
@@ -509,7 +509,7 @@ export const products: Product[] = [
     sectionTitle: '🏷️ Letreros con nombres personalizados',
   },
   {
-    id: 'mini-pista-baloncesto',
+    identifier: 'mini-pista-baloncesto',
     title: '# Mini Pista de Baloncesto',
     events: ['dieciocho'],
     image: '/img/xvlll.png',
@@ -523,7 +523,7 @@ export const products: Product[] = [
     sectionTitle: '🔑 Souvenirs: Adornos & Llaveros / Soporte exhibidor',
   },
   {
-    id: 'adorno-mi-graduacion',
+    identifier: 'adorno-mi-graduacion',
     title: 'Adorno Mi Graduación',
     events: ['graduacion'],
     image: '/img/Captura_de_pantalla_2026-08-04_015037-removebg-preview.png',
@@ -537,7 +537,7 @@ export const products: Product[] = [
     sectionTitle: '🎂 Adornos para Pastel / Toppers',
   },
   {
-    id: 'letrero-mi-graduacion',
+    identifier: 'letrero-mi-graduacion',
     title: 'Letrero Mi Graduación',
     events: ['graduacion'],
     image: '/img/Captura_de_pantalla_2026-08-04_014854-removebg-preview.png',
@@ -551,7 +551,7 @@ export const products: Product[] = [
     sectionTitle: '🏷️ Letreros con nombres personalizados',
   },
   {
-    id: 'llavero-graduado',
+    identifier: 'llavero-graduado',
     title: 'Llavero Graduado',
     events: ['graduacion'],
     image: '/img/llavero_graduacion2-removebg-preview.png',
